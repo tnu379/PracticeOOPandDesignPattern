@@ -10,7 +10,7 @@
     -ví dụ: Các công ty vận chuyển như Giao Hàng tiết kiệm, Giao Hàng Nhanh, ...đều cung cấp API để truy cập đến hệ thống của họ. Team được giao nhiệm vụ thiết kế một API để client có thể sử dụng dịch vụ của một công ty bất kỳ. Hiện tại, phía client chỉ cần sử dụng dịch vụ của 3 công ty là Giao Hàng Nhanh, Giao Hàng Tiết Kiệm và Viettel Post. Tuy nhiên để dễ mở rộng sau này, và phía client mong muốn không cần phải thay đổi code của họ khi cần sử dụng thêm dịch vụ của ngân hàng khác. Với yêu cầu như vậy, chúng ta có thể sử dụng một Pattern phù hợp là Factory Method Pattern.
 
 
-  **  **Chương trình được cài đặt theo Factory Pattern như sau:**
+    **Chương trình được cài đặt theo Factory Pattern như sau:**
     __Supper Class:__
     ```
         public interface CompanyShip {
@@ -19,7 +19,7 @@
         }
     ```
 
-    **Sub Classes:**
+    __Sub Classes:__
     ```
         class VTP implements CompanyShip {
             public function getName() {
