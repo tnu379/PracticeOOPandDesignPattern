@@ -16,7 +16,7 @@
     __Supper Class:__
     ```
 
-        public interface CompanyShip {
+        interface CompanyShip {
             public function getName():string;
             public function createOrder($method,$order);
         }
@@ -46,20 +46,22 @@
     ```
     __Factory class:__
     ```
-        class CompanyShipFactory{
-            public static function getCompanyShipk(CompanyShipType $companyShipType) {
+        class CompanyShipFactory
+        {
+            public static function getCompanyShipk($companyShipType)
+            {
                 switch ($companyShipType) {
-                case GHTK:
-                    return new GTTK();
-                    break;
-                case GHN:
-                    return new GHN();
-                    break;
-                case VTP:
-                    return new VTP();
-                    break;
-                default:
-                    throw new IllegalArgumentException("This company ship type is unsupported");
+                    case CompanyShipType::SHIPPING_GHTK:
+                        return new GTTK();
+                        break;
+                    case CompanyShipType::SHIPPING_GHN:
+                        return new GHN();
+                        break;
+                    case CompanyShipType::SHIPPING_VTP:
+                        return new VTP();
+                        break;
+                    default:
+                        echo 'false';
                 }
             }
         }
@@ -67,17 +69,22 @@
 
     __CompanyShip type:__
     ```
-        class CompanyShipType {
-            GHTK, GHN, CTP;
+        class CompanyShipType
+        {
+            const SHIPPING_GHN = "GHN";
+            const SHIPPING_GHTK = "GHTK";
+            const SHIPPING_VTP = "VTP";
         }
     ```
     __Client:__
     ```
-        class Client{
-            public funtion Getname(){
-                $this->CompanyShipFactory::getCompanyShip("GHN");
+         class Client
+            {
+                public function Getname($name)
+                {
+                    $this->CompanyShipFactory::getCompanyShip($name);
+                }
             }
-        }
     ```
 
 **Factory Pattern được sử dụng khi:**
