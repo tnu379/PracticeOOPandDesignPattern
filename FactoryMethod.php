@@ -1,7 +1,3 @@
-<!DOCTYPE html>
-<html>
-
-<body>
 
     <?php
     // Interface definition
@@ -45,17 +41,17 @@
     // Create a list of animals
     class CompanyShipFactory
     {
-        public static function getCompanyShipk($companyShipType)
+        public function getCompanyShip($companyShipType)
         {
             switch ($companyShipType) {
                 case CompanyShipType::SHIPPING_GHTK:
-                    return new GTTK();
+                    return (new GTTK())->getName();
                     break;
                 case CompanyShipType::SHIPPING_GHN:
-                    return new GHN();
+                    return( new GHN())->getName();
                     break;
                 case CompanyShipType::SHIPPING_VTP:
-                    return new VTP();
+                    return( new VTP())->getName();
                     break;
                 default:
                     echo 'false';
@@ -66,13 +62,9 @@
     {
         public function Getname($name)
         {
-            $this->CompanyShipFactory::getCompanyShip($name);
+            (new CompanyShipFactory())->getCompanyShip($name);
         }
     }
 
-    echo Client::Getname('GHN');
+    echo (new Client())->Getname('GHN');
     ?>
-
-</body>
-
-</html>

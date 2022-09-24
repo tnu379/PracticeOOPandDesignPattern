@@ -48,17 +48,17 @@
     ```
         class CompanyShipFactory
         {
-            public static function getCompanyShipk($companyShipType)
+            public function getCompanyShip($companyShipType)
             {
                 switch ($companyShipType) {
                     case CompanyShipType::SHIPPING_GHTK:
-                        return new GTTK();
+                        return (new GTTK())->getName();
                         break;
                     case CompanyShipType::SHIPPING_GHN:
-                        return new GHN();
+                        return( new GHN())->getName();
                         break;
                     case CompanyShipType::SHIPPING_VTP:
-                        return new VTP();
+                        return( new VTP())->getName();
                         break;
                     default:
                         echo 'false';
@@ -78,13 +78,14 @@
     ```
     __Client:__
     ```
-         class Client
+        class Client
+        {
+            public function Getname($name)
             {
-                public function Getname($name)
-                {
-                    $this->CompanyShipFactory::getCompanyShip($name);
-                }
+                (new CompanyShipFactory())->getCompanyShip($name);
             }
+        }
+
     ```
 
 **Factory Pattern được sử dụng khi:**
