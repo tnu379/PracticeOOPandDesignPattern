@@ -4,7 +4,7 @@
 //     public Color $color;
 // }
 
-interface Builder
+interface Builder1
 {
     public function setWheels($wheels);
     public function setColor($color);
@@ -12,7 +12,7 @@ interface Builder
 }
 
 
-class CarBuilder implements Builder
+class CarBuilder implements Builder1
 {
     private $car;
 
@@ -42,7 +42,7 @@ class Director
 {
     public $builder;
 
-    public function setBuilder(Builder $builder)
+    public function setBuilder(Builder1 $builder)
     {
         $this->builder = $builder;
     }
